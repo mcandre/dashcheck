@@ -14,4 +14,19 @@ char genChar() {
 	return cast(char) uniform(0, 128);
 }
 
+T[] genArray(T function() gen) {
+	int len = uniform(0, 100);
+	T[] arr = [];
+
+	for(int i = 0; i < len; i++) {
+		arr ~= gen();
+	}
+
+	return arr;
+}
+
+string genString() {
+	return genArray(&genChar);
+}
+
 // ...

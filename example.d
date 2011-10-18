@@ -7,6 +7,7 @@ void main(string[] args) {
 	writeln("Random integer: ", genInt());
 	writeln("Random boolean: ", genBool());
 	writeln("Random char: ", genChar());
+	writeln("Random string: ", genString());
 
 	// ...
 }
