@@ -5,4 +5,7 @@ import std.stdio;
 
 void main(string[] args) {
 	writeln("Random integer: ", genInt());
+	writeln("Random boolean: ", genBool());
+
+	// ...
 }
