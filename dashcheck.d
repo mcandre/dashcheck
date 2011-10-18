@@ -14,7 +14,7 @@ char genChar() {
 	return cast(char) uniform(0, 128);
 }
 
-T[] genArray(T function() gen) {
+T[] genArray(T)(T function() gen) {
 	int len = uniform(0, 100);
 	T[] arr = [];
 
@@ -26,7 +26,7 @@ T[] genArray(T function() gen) {
 }
 
 string genString() {
-	return genArray(&genChar);
+	return genArray(&genChar).idup;
 }
 
 // ...
