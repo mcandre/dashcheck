@@ -17,7 +17,15 @@ int genEven() {
 	return i;
 }
 
+bool reversible(string s) {
+	string r = s.idup.reverse;
+	string s2 = r.idup.reverse;
+
+	return s == s2;
+}
+
 void main(string[] args) {
 	forAll!isEven(&genInt);
 	forAll!isEven(&genEven);
+	forAll!reversible(&genString);
 }

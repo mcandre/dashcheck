@@ -31,8 +31,6 @@ string genString() {
 	return genArray(&genChar).idup;
 }
 
-// With help from Martin Novak
-// https://github.com/dawgfoto/qcheck
 void forAll(alias property, Generators...)(Generators gs) {
 	alias ParameterTypeTuple!property TP;
 
