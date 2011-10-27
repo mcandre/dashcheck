@@ -33,15 +33,15 @@ string genString() {
 // With help from Martin Novak
 // https://github.com/dawgfoto/qcheck
 void forAll(alias property, generators...) {
-	alias TypeTuple!(staticMap!(Unqual, ParameterTypeTuple!Testee)) TP;
+	alias ParameterTypeTuple!property TP;
 
-	Tuple!TP args;
+	TP args;
 
 	foreach(i, g; generators) {
 		args[i] = g();
 	}
 
-	bool holds = property(args.tupleof);
+	bool holds = property(args);
 
 	if (holds) {
 		writeln("+++ OK, passed 100 tests.");
