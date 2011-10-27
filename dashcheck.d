@@ -32,12 +32,12 @@ string genString() {
 
 // With help from Martin Novak
 // https://github.com/dawgfoto/qcheck
-void forAll(alias property, generators...) {
+void forAll(alias property, Generators...)(Generators gs) {}
 	alias ParameterTypeTuple!property TP;
 
 	TP args;
 
-	foreach(i, g; generators) {
+	foreach(i, g; gs) {
 		args[i] = g();
 	}
 
