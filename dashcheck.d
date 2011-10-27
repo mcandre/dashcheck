@@ -1,5 +1,6 @@
 module dashcheck;
 
+import std.traits;
 import std.random;
 import std.stdio;
 
@@ -32,23 +33,21 @@ string genString() {
 
 // With help from Martin Novak
 // https://github.com/dawgfoto/qcheck
-void forAll(alias property, Generators...)(Generators gs) {}
+void forAll(alias property, Generators...)(Generators gs) {
 	alias ParameterTypeTuple!property TP;
 
 	TP args;
 
-	foreach(i, g; gs) {
-		args[i] = g();
+	foreach(i; 0 .. 99) {
+		foreach(j, g; gs) {
+			args[j] = g();
+		}
+
+		if (!property(args)) {
+			writeln("*** Failed!\n", args);
+			return;
+		}
 	}
 
-	bool holds = property(args);
-
-	if (holds) {
-		writeln("+++ OK, passed 100 tests.");
-	}
-	else {
-		writeln("*** Failed!", args);
-	}
-
-	// ...
+	writeln("+++ OK, passed 100 tests.");
 }

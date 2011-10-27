@@ -3,11 +3,10 @@
 import dashcheck;
 import std.stdio;
 
-void main(string[] args) {
-	writeln("Random integer: ", genInt());
-	writeln("Random boolean: ", genBool());
-	writeln("Random char: ", genChar());
-	writeln("Random string: ", genString());
+bool isEven(int i) {
+	return i % 2 == 0;
+}
 
-	// ...
+void main(string[] args) {
+	forAll!isEven(&genInt);
 }
