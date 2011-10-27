@@ -1,6 +1,7 @@
 module dashcheck;
 
 import std.random;
+import std.stdio;
 
 int genInt() {
 	return uniform(0, 256);
@@ -29,4 +30,25 @@ string genString() {
 	return genArray(&genChar).idup;
 }
 
-// ...
+// With help from Martin Novak
+// https://github.com/dawgfoto/qcheck
+void forAll(alias property, generators...) {
+	alias TypeTuple!(staticMap!(Unqual, ParameterTypeTuple!Testee)) TP;
+
+	Tuple!TP args;
+
+	foreach(i, g; generators) {
+		args[i] = g();
+	}
+
+	bool holds = property(args.tupleof);
+
+	if (holds) {
+		writeln("+++ OK, passed 100 tests.");
+	}
+	else {
+		writeln("*** Failed!", args);
+	}
+
+	// ...
+}
