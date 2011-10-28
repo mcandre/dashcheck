@@ -1,4 +1,4 @@
-#!/usr/bin/env rdmd
+#!/usr/bin/env rdmd -I~/.d
 
 import dashcheck;
 import std.stdio;
