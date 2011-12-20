@@ -1,10 +1,10 @@
-dashcheck - a D port of the QuickCheck unit test framework
+# dashcheck - a D port of the QuickCheck unit test framework
 
-HOMEPAGE
+## HOMEPAGE
 
 [http://www.yellosoft.us/quickcheck](http://www.yellosoft.us/quickcheck)
 
-EXAMPLE
+## EXAMPLE
 
 	$ ./example.d 
 	*** Failed!
