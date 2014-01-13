@@ -16,8 +16,8 @@ char genChar() {
 	return cast(char) uniform(0, 128);
 }
 
-T[] genArray(T)(T function() gen) {
-	int len = uniform(0, 100);
+T[] genArray(T)(const T function() gen) {
+	const int len = uniform(0, 100);
 	T[] arr = [];
 
 	for(int i = 0; i < len; i++) {
@@ -31,7 +31,7 @@ string genString() {
 	return genArray(&genChar).idup;
 }
 
-void forAll(alias property, Generators...)(Generators gs) {
+void forAll(alias property, Generators...)(const Generators gs) {
 	alias ParameterTypeTuple!property TP;
 
 	TP args;

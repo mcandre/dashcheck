@@ -8,23 +8,24 @@ bool isEven(int i) {
 }
 
 int genEven() {
-	int i = genInt();
+	const int i = genInt();
 
 	if (i % 2 != 0) {
-		i++;
+		return i + 1;
 	}
-
-	return i;
+  else {
+    return i;
+  }
 }
 
 bool reversible(string s) {
-	auto r = s.dup.reverse;
-  auto s2 = r.dup.reverse;
+	const auto r = s.dup.reverse;
+  const auto s2 = r.dup.reverse;
 
 	return s == s2;
 }
 
-void main(string[] args) {
+void main(const string[] args) {
 	forAll!isEven(&genInt);
 	forAll!isEven(&genEven);
 	forAll!reversible(&genString);
