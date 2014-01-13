@@ -36,8 +36,8 @@ void forAll(alias property, Generators...)(Generators gs) {
 
 	TP args;
 
-	foreach(i; 0 .. 99) {
-		foreach(j, g; gs) {
+	foreach (i; 0 .. 99) {
+		foreach (j, g; gs) {
 			args[j] = g();
 		}
 
