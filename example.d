@@ -18,8 +18,8 @@ int genEven() {
 }
 
 bool reversible(string s) {
-	string r = s.idup.reverse;
-	string s2 = r.idup.reverse;
+	auto r = s.dup.reverse;
+  auto s2 = r.dup.reverse;
 
 	return s == s2;
 }
