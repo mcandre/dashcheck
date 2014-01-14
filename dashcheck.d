@@ -31,7 +31,7 @@ string genString() {
 	return genArray(&genChar).idup;
 }
 
-void forAll(alias property, Generators...)(const Generators gs) {
+bool forAll(alias property, Generators...)(const Generators gs) {
 	alias ParameterTypeTuple!property TP;
 
 	TP args;
@@ -43,9 +43,11 @@ void forAll(alias property, Generators...)(const Generators gs) {
 
 		if (!property(args)) {
 			writeln("*** Failed!\n", args);
-			return;
+			return false;
 		}
 	}
 
 	writeln("+++ OK, passed 100 tests.");
+
+  return true;
 }
