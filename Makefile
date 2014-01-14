@@ -1,7 +1,7 @@
 all: test
 
 test: dashcheck.d example.d
-	-./example.d
+	-rdmd example.d
 
 install:
 	mkdir -p ~/.d/
