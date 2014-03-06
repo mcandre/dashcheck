@@ -4,6 +4,10 @@
 
 [http://www.yellosoft.us/quickcheck](http://www.yellosoft.us/quickcheck)
 
+# INSTALL
+
+    $ make install
+
 # EXAMPLE
 
 	$ rdmd example.d 
@@ -14,6 +18,7 @@
 
 # REQUIREMENTS
 
+* `make`
 * [dmd](http://dlang.org/) 2+
 
 ## Optional
@@ -22,8 +27,11 @@
 * [Bundler](http://bundler.io/)
 * [Cucumber](http://cukes.info/)
 * [Guard](http://guardgem.org/)
+* [aspelllint](https://github.com/mcandre/aspelllint)
 
-# TESTING
+# DEVELOPMENT
+
+## Testing
 
 Ensure the example script works as expected:
 
@@ -45,6 +53,7 @@ Guard can automatically run testing when the code changes:
     $ guard -G Guardfile-cucumber
     ...
 
-# INSTALL
+## Spell Check
 
-    $ make install
+    $ aspelllint
+    ...
