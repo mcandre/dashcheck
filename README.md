@@ -3,7 +3,7 @@
 # EXAMPLE
 
 ```
-$ rdmd example.d 
+$ rdmd example.d
 *** Failed!
 163
 +++ OK, passed 100 tests.
@@ -43,7 +43,7 @@ Ensure the example script works as expected:
 
 ```
 $ bundle
-$ cucumber 
+$ cucumber
 Feature: Run example tests
 
   Scenario: Running example tests            # features/run_example_tests.feature:3
