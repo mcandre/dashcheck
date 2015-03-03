@@ -1,6 +1,6 @@
 {
   "name": "dashcheck",
-  "description": "Configuration files",
+  "description": "a D port of the QuickCheck unit test framework",
   "version": "0.0.0",
   "repository": {
     "type": "git",
