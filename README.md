@@ -12,10 +12,6 @@ $ rdmd example.d
 
 See [example.d](https://github.com/mcandre/dashcheck/blob/master/example.d) for more information.
 
-# HOMEPAGE
-
-http://www.yellosoft.us/quickcheck
-
 # INSTALL
 
 ```
@@ -29,11 +25,11 @@ $ make install
 
 ## Optional
 
-* [Ruby](https://www.ruby-lang.org/) 2+
-* [Bundler](http://bundler.io/)
+* [ruby](https://www.ruby-lang.org/) 2+
 * [Cucumber](http://cukes.info/)
-* [Guard](http://guardgem.org/)
 * [aspelllint](https://github.com/mcandre/aspelllint)
+* [pargs](https://github.com/mcandre/pargs)
+* [editorconfig-tools](https://www.npmjs.com/package/editorconfig-tools)
 
 # DEVELOPMENT
 
@@ -53,14 +49,6 @@ Feature: Run example tests
 1 scenario (1 passed)
 2 steps (2 passed)
 0m0.016s
-```
-
-Guard can automatically run testing when the code changes:
-
-```
-$ bundle
-$ guard -G Guardfile-cucumber
-...
 ```
 
 ## Spell Check
