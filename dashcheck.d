@@ -5,49 +5,49 @@ import std.random;
 import std.stdio;
 
 int genInt() {
-  return uniform(0, 256);
+    return uniform(0, 256);
 }
 
 bool genBool() {
-  return uniform(0, 2) == 0;
+    return uniform(0, 2) == 0;
 }
 
 char genChar() {
-  return cast(char) uniform(0, 128);
+    return cast(char) uniform(0, 128);
 }
 
 T[] genArray(T)(const T function() gen) {
-  const int len = uniform(0, 100);
-  T[] arr = [];
+    const int len = uniform(0, 100);
+    T[] arr = [];
 
-  for(int i = 0; i < len; i++) {
-    arr ~= gen();
-  }
+    for(int i = 0; i < len; i++) {
+        arr ~= gen();
+    }
 
-  return arr;
+    return arr;
 }
 
 string genString() {
-  return genArray(&genChar).idup;
+    return genArray(&genChar).idup;
 }
 
 bool forAll(alias property, Generators...)(const Generators gs) {
-  alias ParameterTypeTuple!property TP;
+    alias ParameterTypeTuple!property TP;
 
-  TP args;
+    TP args;
 
-  foreach (i; 0 .. 99) {
-    foreach (j, g; gs) {
-      args[j] = g();
+    foreach (i; 0 .. 99) {
+        foreach (j, g; gs) {
+            args[j] = g();
+        }
+
+        if (!property(args)) {
+            writeln("*** Failed!\n", args);
+            return false;
+        }
     }
 
-    if (!property(args)) {
-      writeln("*** Failed!\n", args);
-      return false;
-    }
-  }
+    writeln("+++ OK, passed 100 tests.");
 
-  writeln("+++ OK, passed 100 tests.");
-
-  return true;
+    return true;
 }
